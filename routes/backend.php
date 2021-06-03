@@ -1,14 +1,14 @@
 <?php
 use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-    Route::get('/', [\App\Http\Controllers\BackendController::class,'index'])->name('admin.index');
+    Route::get('/', [\App\Http\Controllers\Backend\BackendController::class,'index'])->name('admin.index');
     Route::get('/user/edit_profile/{id}', ['as' => 'admin.user.index_profile', 'uses' => 'Backend\UserController@editProfile']);
     /* Quản lý user */
-    Route::get('/user',[\App\Http\Controllers\UserController::class,'index'])->name('admin.user.index');
-    Route::get('/user/create',[\App\Http\Controllers\UserController::class,'create'])->name('admin.user.create');
-    Route::post('/user/store',[\App\Http\Controllers\UserController::class,'store'])->name('admin.user.store');
-    Route::get('/user/edit/{id}',[\App\Http\Controllers\UserController::class,'edit'])->name('admin.user.edit');
-    Route::post('/user/update/{id}',[\App\Http\Controllers\UserController::class,'update'])->name('admin.user.update');
+    Route::get('/user',[\App\Http\Controllers\Backend\UserController::class,'index'])->name('admin.user.index');
+    Route::get('/user/create',[\App\Http\Controllers\Backend\UserController::class,'create'])->name('admin.user.create');
+    Route::post('/user/store',[\App\Http\Controllers\Backend\UserController::class,'store'])->name('admin.user.store');
+    Route::get('/user/edit/{id}',[\App\Http\Controllers\Backend\UserController::class,'edit'])->name('admin.user.edit');
+    Route::post('/user/update/{id}',[\App\Http\Controllers\Backend\UserController::class,'update'])->name('admin.user.update');
     /* Quản lý role */
     Route::get('/role',[\App\Http\Controllers\Backend\RoleController::class,'index'])->name('admin.role.index');
     Route::get('/role/create',[\App\Http\Controllers\Backend\RoleController::class,'create'])->name('admin.role.create');

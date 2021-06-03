@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
 
 use Illuminate\Http\Request;
 use Repositories\UserRepository;
-
+use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
     public function __construct(UserRepository $userRepo)
